@@ -7,7 +7,6 @@ import * as Sharing from "expo-sharing";
 
 export default function Step4({ backStep, info }: IStep) {
   const [formInfo, SetFormInfo] = useState(info);
-  const [selectedPrinter, setSelectedPrinter] = useState<any>();
   const [lider, setLider] = useState<boolean>(false);
   const [comunicativo, setComunicativo] = useState<boolean>(false);
   const [colaborativo, setColaborativo] = useState<boolean>(false);
@@ -60,7 +59,6 @@ export default function Step4({ backStep, info }: IStep) {
     const { uri } = await Print.printToFileAsync({
       html,
     });
-    console.log("File has been saved to:", uri);
     await Sharing.shareAsync(uri, { UTI: ".pdf", mimeType: "application/pdf" });
   };
 
